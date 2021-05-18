@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recharge
+{% endblock %}
+
+{% block main %}
+<br>
+    <h1 style="margin: 2% auto;"> Hyperloop Lite Wallet</h1>
+<br>
+<!-- <div class="row"> -->
+<div class="topup-profile-card col-2">
+    <img class="topup-profile-image" src="/static/userImage.png" alt="Image" style="width:100%">
+    <br>
+    <h1>Welcome {{current_user.username}}</h1>
+    <p class="topup-profile-title">This is your E-wallet for HyperLoop Lite transactions</p>
+</div>
+
+<div class="topup-login-box1">
+    <h1 class="topup-font"> Your Balance : {{current_user.wallet}}</h1>
+</div>
+<!-- </div> -->
+<br>
+
+
+
+{% endblock %}

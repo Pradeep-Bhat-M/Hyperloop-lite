@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Confirm
+{% endblock %}
+
+{% block main %}
+<script> 
+    function printDiv() { 
+        var divContents = document.getElementById("confirmPrint").innerHTML; 
+        var a = window.open('', '', 'height=500, width=500'); 
+        a.document.write('<html>'); 
+        a.document.write('<body > <link href="/static/ticket.css" rel="stylesheet"> <br>'); 
+        a.document.write(divContents); 
+        a.document.write('</body></html>'); 
+        a.document.close(); 
+        a.print(); 
+    } 
+</script> 
+
+
+<div id="confirmPrint" >
+
+<div class = "login-box1">
+    <form method="POST">
+<h1 style="font-family:'Exo 2', sans-serif;">
+    Confirm Your Ticket!
+</h1>
+<img src="/static/ticket.jpg" alt="Logo" style="width: 300px; height: 250; margin: auto;">
+
+<br>
+<br>
+
+<p style="font-family:'Exo 2', sans-serif;"> Departure   : {{departure}}</p>
+<p style="font-family:'Exo 2', sans-serif;"> Destination : {{destination}}</p>
+<p style="font-family:'Exo 2', sans-serif;"> Travel Date : {{travel_date}}</p>
+<p class="font"> Fare        : Rs {{fare}}/-</p>
+<p style="font-family:'Exo 2', sans-serif;"> Distance    : {{distance}} KM</p>
+<p style="font-family:'Exo 2', sans-serif;"> Time required : {{t_time}} minutes</p>
+<p class="font"> Time Saved!!! : {{o_time}} minutes</p>
+<p style="font-family:'Exo 2', sans-serif;"> There you go!!!</p>
+
+<span>
+    <div style="margin: 2% auto; text-align: center;">
+    <input type="button" class="btn btn-dark " value="Print" onclick="printDiv()">  
+    <input type = "submit" class="btn btn-dark " value = "Submit" />
+</div> <br>
+</span>
+
+</form>
+</div>
+</div>
+{% endblock %}

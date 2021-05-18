@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<!-- <h1>Welcome to your profile</h1> -->
+<br>
+<div class="profile-card">
+  <img class="profile-image" src="/static/profile1.png" alt="Image" style="width:100%">
+  <br>
+  <br>
+  <h1 style="font-family: 'Josefin Sans', sans-serif;">Welcome {{current_user.username}}</h1>
+  <p class="profile-title" style="font-family:'Exo 2', sans-serif;">Email : {{ current_user.email }}</p>
+  <br>
+</div>
+
+<br>
+
+<div class= profile-flex-container>
+      <div class="profile-flex-container-btn"><a href = "{{ url_for('book') }}"> Book </a></div>
+      <div class="profile-flex-container-btn"><a href = "{{ url_for('cancel') }} "> Cancel</a></div>
+      <!-- <div class="profile-flex-container-btn"><a href = "#"> Wallet</a></div> -->
+</div>
+
+<!-- <h4> Your Upcoming Reservations is as follows : </h4> -->
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+        <th colspan="6"> Upcoming Rides</th>
+    </tr>
+  </thead>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Departure</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Date of journey</th>
+        <th scope="col">Date of Booking</th>
+        <th scope="col">Fare (in Rs.)</th>
+        <th scope="col">Distance (KM)</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for next in upcoming %}
+    <tr>
+      <td scope="row">{{ next.departure }}</td>
+      <td>{{ next.destination }}</td>
+      <td>{{ next.travel_date }}</td>
+      <td>{{ next.booking_date }}</td>
+      <td>{{ next.fare }}</td>
+      <td>{{ next.distance }}</td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td scope="row">Total Upcoming trips</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>{{ u_trips }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+          <th colspan="6"> Past Rides</th>
+      </tr>
+    </thead>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Departure</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Date of journey</th>
+          <th scope="col">Date of Booking</th>
+          <th scope="col">Fare (in Rs.)</th>
+          <th scope="col">Distance (KM)</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% for over in over_rows %}
+      <tr>
+        <td scope="row">{{ over.departure }}</td>
+        <td>{{ over.destination }}</td>
+        <td>{{ over.travel_date }}</td>
+        <td>{{ over.booking_date }}</td>
+        <td>{{ over.fare }}</td>
+        <td>{{ over.distance }}</td>
+      </tr>
+    {% endfor %}
+      <tr>
+        <td scope="row">History of trips</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ o_trips }}</td>
+      </tr>
+      </tbody>
+    </table>  
+<!--  
+<a href="{{ url_for('logout')}}">Logout Here</a> -->
+{% endblock %}

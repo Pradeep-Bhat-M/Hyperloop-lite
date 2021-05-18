@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Card
+{% endblock %}
+
+{% block main %}
+
+<!-- <div class="container">
+    <div class="login1-box">
+        <div class="row">
+            <div class="col-md-6 login-left" >
+              <h2 style="font-family: 'Josefin Sans', sans-serif;">Add your Card</h2>
+                  <form method="post">
+                    <div class="form-group">
+                          <label style="font-family:'Exo 2', sans-serif;">Name on Card</label>
+                          <input type="text" name="card_name" class="form-control"required>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-family:'Exo 2', sans-serif;"> Expiry Date</label>
+                        <input type="date" name="exp_date" autocomplete="cc-exp" placeholder="•• / ••" class="form-control"required>
+                    </div>
+                      <div class="form-group">
+                          <label style="font-family:'Exo 2', sans-serif;">CVV</label>
+                          <input type="password" name="cvv" class="form-control"required>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-family:'Exo 2', sans-serif;">Card Number</label>
+                        <input type="Card number" name="card_number" placeholder="•••• •••• •••• ••••"  pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" class="form-control"required>
+                    </div>
+                      <button type="submit" class="btn btn-primary" style="font-family:'Exo 2', sans-serif;">Register Card</button> <br> <br>
+                     pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"> 
+            </form>
+                  
+          </div>
+        </div>
+        </div>
+</div>
+<br>
+<br> --> 
+
+
+
+<div class="creditCardForm">
+    <div class="heading">
+        <h1>Validate Your Card</h1>
+    </div>
+    <div class="payment">
+        <form method="POST">
+            <div class="form-group owner">
+                <label for="owner">Owner</label>
+                <input type="text" class="form-control" id="owner">
+            </div>
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv">
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber">
+            </div>
+            <div class="form-group" id="card-bank-field">
+                <label for="card_bank">Card Bank</label>
+                <input type="text" class="form-control" id="card_bank">
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label>Expiration Date</label>
+                <select>
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select>
+                    <option value="13"> 2021</option>
+                    <option value="14"> 2022</option>
+                    <option value="15"> 2023</option>
+                    <option value="16"> 2024</option>
+                    <option value="17"> 2025</option>
+                    <option value="18"> 2026</option>
+                    <option value="19"> 2027</option>
+                </select>
+            </div>
+            <div class="form-group" id="credit_cards">
+                <img src="static/visa.jpg" id="visa">
+                <img src="static/mastercard.jpg" id="mastercard">
+                <img src="static/amex.jpg" id="amex">
+            </div>
+            <div class="form-group" id="pay-now">
+                 <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

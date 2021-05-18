@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="login1-box">
+        <div class="row">
+            <div class="col-md-6 login-left" >
+              <h1>Book Here</h1>
+              <br>
+              <h5>You Have {{ current_user.wallet|round  }} Hyperloop credits. </h5>
+                  <form method="post">
+                    <div class="form-group">
+                          <label>Departure</label>
+                          <select name="departure" class="form-control"required>
+                            <option value="none" selected disabled hidden> 
+                                Select an Option 
+                            </option>  
+                            {% for station in stations %}
+                            <option value="{{station}}"> {{ station }}</option>
+                            {% endfor %}
+                          </select>
+                          <!-- <input type="text" name="departure" class="form-control"required> -->
+                      </div>
+                      <div class="form-group">
+                          <label>Destination</label>
+                          <select name="destination" class="form-control"required>
+                            <option value="none" selected disabled hidden> 
+                                Select an Option 
+                            </option>  
+                            {% for station in stations %}
+                            <option value="{{station}}"> {{ station }}</option>
+                            {% endfor %}
+                          </select>
+                          <!-- <input type="text" name="destination" class="form-control"required> -->
+                      </div>
+                      <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" name="date" class="form-control"required>
+                      </div>
+                      <div style="text-align: center;">
+                      <button type="submit" class="btn btn-primary" >Book</button>
+                    </div> 
+                      <!-- <a href="#" style="color: red;" >Forgot Password?</a> -->
+               </form>
+                  
+          </div>
+        </div>
+        </div>
+</div>
+
+<!-- <div class = "formStyles">
+    <form action="" method = "POST">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name = "departure" required id="floatingInput" placeholder="Departure">
+            <label for="floatingInput">Departure</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name = "destination" required id="floatingInput" placeholder="Destination">
+            <label for="floatingInput">Destination</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" name = "date" required id="floatingInput" placeholder="Date Of Journey">
+            <label for="floatingInput">Date Of Journey</label>
+        </div>
+        <input type = "submit" class="btn btn-dark buttonCentre" value = "Submit" /> <br>
+    </form>
+</div> -->
+{% endblock %}

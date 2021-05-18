@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cancel
+{% endblock %}
+
+{% block main %}
+    <div class="login-box1">
+        <form action="" method="POST">
+            <label for="t_id"><h3>Enter Travel ID to cancel</h3></label>
+            <input type="number" id="t_id" name="t_id" placeholder="Travel ID" required>
+        </form>
+        <br>
+          <p> U will loose 50% of the wallet credits if you cancel a confirmed ticket</p>
+
+    </div>
+    <div>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+        <th colspan="7"> Upcomig Rides</th>
+    </tr>
+  </thead>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Travel ID</th>
+        <th scope="col">Departure</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Date of journey</th>
+        <th scope="col">Date of Booking</th>
+        <th scope="col">Fare (in Rs.)</th>
+        <th scope="col">Distance (KM)</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for next in upcoming %}
+    <tr>
+      <td>{{ next.travel_id }}</td>
+      <td>{{ next.departure }}</td>
+      <td>{{ next.destination }}</td>
+      <td>{{ next.travel_date }}</td>
+      <td>{{ next.booking_date }}</td>
+      <td>{{ next.fare }}</td>
+      <td>{{ next.distance }}</td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td scope="row">Total Upcoming trips</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>{{ u_trips }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
